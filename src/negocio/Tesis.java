@@ -5,6 +5,9 @@
  */
 package negocio;
 
+import TListas.TListaDin;
+import datos.ListaTesis;
+
 public class Tesis {
     //calificacion 0 = regular , 1 = buena , 2= muy buena , 3 , excelente
     private String area,anio_sustentacion;
@@ -38,7 +41,20 @@ public class Tesis {
     public int getCalificacion() {
         return calificacion;
     }
-    
-    
+   //mostrar las tesis cuyo año de sustentacion se encuentra entre dos valores ingresados
+    public static TListas.TLista mostrarTesisxAño(int menor , int mayor){
+     TListas.TListaDin listaFiltrada = new TListaDin();
+     TListas.TLista tesis = ListaTesis.consultarLista();
+        for (int i = 0; i < tesis.Cantidad(); i++) {
+            Tesis  objTesis = (Tesis) tesis.Obtener(i);
+            int anio =  Integer.parseInt(objTesis.getAnio_sustentacion());
+           if( anio > menor&& anio  < mayor ){
+              
+              listaFiltrada.Adicionar(objTesis);
+           }
+        }
+      
+        return  listaFiltrada;
+    }
     
 }

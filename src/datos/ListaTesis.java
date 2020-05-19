@@ -18,5 +18,5 @@ public class ListaTesis {
     public static void agregar(Object tesis){
         listaDin.Adicionar(tesis);
     }
-    
+ 
 }
